@@ -47,6 +47,10 @@ Execute sempre o comando acima ao abrir o workspace.
 
 2.2 Executar o servidor
 
+Primeira opção:
+cd careops/
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
+
 No diretório careops/:
 
 uvicorn main:app --host 0.0.0.0 --port 8000
