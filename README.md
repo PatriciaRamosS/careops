@@ -47,14 +47,15 @@ Execute sempre o comando acima ao abrir o workspace.
 
 2.2 Executar o servidor
 
-Primeira opção:
+```bash
 cd careops/
 python -m uvicorn main:app --host 0.0.0.0 --port 8000
-
+````
 No diretório careops/:
-
+```bash
+cd careops/
 uvicorn main:app --host 0.0.0.0 --port 8000
-
+````
 Se você estiver usando o GitHub Codespaces, a porta será detectada e exposta automaticamente.
 
 Você verá um link assim:
