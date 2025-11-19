@@ -1,4 +1,4 @@
 fastapi==0.95.0
 uvicorn==0.22.0
-jinja2==2.11.2        # versão vulnerável (CVE-2020-28493)
+jinja2==2.11.2        # versão vulnerável (CVE-2020-28493) (para SCA)
 markupsafe==1.1.1     # versão vulnerável (CVE-2021-23336)
