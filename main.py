@@ -5,7 +5,6 @@ from pydantic import ValidationError
 from typing import Dict
 
 from database import load_db, save_db
-from models import Patient
 
 
 app = FastAPI(title="CareOps+ API", version="0.2.0")
