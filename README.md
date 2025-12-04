@@ -62,7 +62,17 @@ Você verá um link assim:
 
 https://<seu-codespace>.app.github.dev
 
+Explicando rapidinho:
 
+--rm → remove o container automaticamente quando ele parar
+
+-p 3000:3000 → expõe a porta 3000 do container na porta 3000 da sua máquina
+
+bkimminich/juice-shop → imagem do OWASP Juice Shop
+
+```bash
+docker run --rm -p 3000:3000 bkimminich/juice-shop
+````
 ⸻
 
 ## 3. Acessar a aplicação (UI)
@@ -73,135 +83,136 @@ https://<seu-codespace>.app.github.dev
 
 Você verá a interface simples em HTML contendo:
 	•	mensagem de boas-vindas
-	•	mini “calculadora” (nas aulas seguintes)
-	•	botão para testar API
+		•	mini “calculadora” (nas aulas seguintes)
+			•	botão para testar API
 
 
-4. Acessar a documentação automática (Swagger)
+			4. Acessar a documentação automática (Swagger)
 
-Acesse:
-```
-/docs
-````
+			Acesse:
+			```
+			/docs
+			````
 
-Exemplo:
+			Exemplo:
 
-https://<seu-codespace>.app.github.dev/docs
+			https://<seu-codespace>.app.github.dev/docs
 
-E também o Redoc:
+			E também o Redoc:
 
-/redoc
+			/redoc
 
-Essas interfaces permitem testar a API sem precisar de Postman.
+			Essas interfaces permitem testar a API sem precisar de Postman.
 
-⸻
+			⸻
 
-5. Testar a API
+			5. Testar a API
 
-5.1 Testar no navegador
+			5.1 Testar no navegador
 
-Root:
-```
-GET /
-```
+			Root:
+			```
+			GET /
+			```
 
-Retorno esperado:
+			Retorno esperado:
 
-```
-{
-  "message": "CareOps+ API funcionando. Use /health para checar o status."
-}
-```
-Healthcheck:
+			```
+			{
+			  "message": "CareOps+ API funcionando. Use /health para checar o status."
+			  }
+			  ```
+			  Healthcheck:
 
-GET /health
-
-
-Retorno:
-
-```
-{
-  "status": "ok"
-}
-```
+			  GET /health
 
 
-5.2 Testar com curl no Codespaces:
+			  Retorno:
 
-```
-curl https://<seu-codespace>.app.github.dev/
-curl https://<seu-codespace>.app.github.dev/health
+			  ```
+			  {
+			    "status": "ok"
+				}
+				```
 
 
-6. Endpoints implementados nesta etapa
+				5.2 Testar com curl no Codespaces:
 
-Método	Endpoint	Descrição
-GET	/	Testa a aplicação e retorna mensagem inicial
-GET	/health	Healthcheck usado em CI/CD e monitoramento
+				```
+				curl https://<seu-codespace>.app.github.dev/
+				curl https://<seu-codespace>.app.github.dev/health
 
-Outros endpoints serão adicionados aula a aula.
 
-7. Segurança aplicada (a cada aula)
+				6. Endpoints implementados nesta etapa
 
-A CareOps+ evoluirá com:
+				Método	Endpoint	Descrição
+				GET	/	Testa a aplicação e retorna mensagem inicial
+				GET	/health	Healthcheck usado em CI/CD e monitoramento
 
-Aula 1
-	• Conceito geral de SDLC Seguro
-	• Estrutura mínima da aplicação
+				Outros endpoints serão adicionados aula a aula.
 
-Aula 2
-	• OWASP Top 10
-	• Primeiras vulnerabilidades intencionais
+				7. Segurança aplicada (a cada aula)
 
-Aula 3
-	• Testes com pytest
-	• Simulação de erro lógico
+				A CareOps+ evoluirá com:
 
-Aula 4
-	• CodeQL (SAST)
-	• Correção de vulnerabilidades
+				Aula 1
+					• Conceito geral de SDLC Seguro
+						• Estrutura mínima da aplicação
 
-Aula 5
-	• SCA com Dependabot e Trivy
+						Aula 2
+							• OWASP Top 10
+								• Primeiras vulnerabilidades intencionais
 
-Aula 6
-	• DAST com OWASP ZAP
+								Aula 3
+									• Testes com pytest
+										• Simulação de erro lógico
 
-Aula 7
-	• Segurança em containers
-	• Dockerfile seguro
+										Aula 4
+											• CodeQL (SAST)
+												• Correção de vulnerabilidades
 
-Aula 8
-	• SBOM com Syft
-	• Scanner com Grype
+												Aula 5
+													• SCA com Dependabot e Trivy
 
-Aula 9
-	• Pipeline DevSecOps completo
-```
+													Aula 6
+														• DAST com OWASP ZAP
 
-## 8. Problemas comuns (FAQ rápido)
+														Aula 7
+															• Segurança em containers
+																• Dockerfile seguro
 
-Erro: "Could not import module careops"
+																Aula 8
+																	• SBOM com Syft
+																		• Scanner com Grype
 
-Você executou o uvicorn no diretório errado.
+																		Aula 9
+																			• Pipeline DevSecOps completo
+																			```
 
-Correto:
+																			## 8. Problemas comuns (FAQ rápido)
 
-cd careops/
-uvicorn main:app --host 0.0.0.0 --port 8000
+																			Erro: "Could not import module careops"
 
-Navegador mostra “Not Found”
+																			Você executou o uvicorn no diretório errado.
 
-Possíveis causas:
-	•	Porta 8000 não exposta no Codespaces
-	•	URL do Codespaces mudou
-	•	Servidor não está rodando
+																			Correto:
+																			```bash
+																			cd careops/
+																			uvicorn main:app --host 0.0.0.0 --port 8000
+																			```
+																			Navegador mostra “Not Found”
 
-Solução:
-	•	Confira a aba PORTS
-	•	Rode novamente o uvicorn
+																			Possíveis causas:
+																				•	Porta 8000 não exposta no Codespaces
+																					•	URL do Codespaces mudou
+																						•	Servidor não está rodando
 
-## 9. Licença
+																						Solução:
+																							•	Confira a aba PORTS
+																								•	Rode novamente o uvicorn
 
-Conteúdo com direitos reservados.
+																								## 9. Licença
 
+																								Conteúdo com direitos reservados.
+
+																								
