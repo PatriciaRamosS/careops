@@ -1,0 +1,16 @@
+{
+  "patients": {
+    "1": {
+      "id": 1,
+      "name": "Maria Silva",
+      "age": 42,
+      "diagnosis": "Hipertens\u00e3o"
+    },
+    "2": {
+      "id": 2,
+      "name": "Jo\u00e3o Souza",
+      "age": 55,
+      "diagnosis": "Diabetes tipo 2"
+    }
+  }
+}
