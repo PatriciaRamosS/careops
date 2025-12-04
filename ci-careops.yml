@@ -7,11 +7,17 @@ on:
       - stg
       - prod
       - 'feature/*'
+      - aula7
+      - aula8
+      - aula9
   pull_request:
     branches:
       - dev
       - stg
       - prod
+      - aula7
+      - aula8
+      - aula9
 
 jobs:
   tests:
